@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hi', function () {
+    return ['pagecount'=>11];
+});
+
+Route::post('/itemsOfPage', function() {
+    return ['items' => 'items data'];
+});
