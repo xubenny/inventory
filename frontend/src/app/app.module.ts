@@ -8,6 +8,7 @@ import { HeaderComponent } from './header.component';
 import { ItemListComponent } from './item-list.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { HttpModule } from '@angular/http';
+import { PaginationComponent } from './pagination.component';
 
 const appRoutes: Routes = [
   {
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     ItemListComponent,
     PageNotFoundComponent,
+    PaginationComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

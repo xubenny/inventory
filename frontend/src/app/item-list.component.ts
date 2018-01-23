@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpService } from './http.service';
+import { PaginationComponent } from './pagination.component';
 
 const url = `http://inventory.local/items/`;
 
@@ -23,6 +24,8 @@ class Item {
 })
 export class ItemListComponent implements OnInit {
     private items: Item[] = [];
+    @ViewChild(PaginationComponent)
+    private pagination: PaginationComponent;
 
 
     constructor(private httpService: HttpService) {
@@ -40,6 +43,7 @@ export class ItemListComponent implements OnInit {
             (response) => {
                 const data = response.json();
                 this.items = data.data;
+                this.pagination.setPageCount(data.last_page);
 
                 this.items.forEach(function(item) {
                     item.purchased_at = item.purchased_at.substr(0, 10);
