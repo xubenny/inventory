@@ -1,1 +1,32 @@
-item list work
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>User</th>
+            <th>Vendor</th>
+            <th>Model</th>
+            <th>Purchased</th>
+            <th>Cost</th>
+            <th>Memo</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items" style="cursor: pointer">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.status}}</td>
+            <td>{{item.user}}</td>
+            <td>{{item.vendor}}</td>
+            <td>{{item.model}}</td>
+            <td>{{item.purchased_at}}</td>
+            <td>{{item.cost}}</td>
+            <td>{{item.memo}}</td>
+            <td>{{item.link}}</td>
+        </tr>
+    </tbody>
+</table>
