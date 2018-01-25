@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Item;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +14,16 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/hi', function () {
+    return ['pagecount'=>11];
+});
+
+Route::get('/items/{page}', function($page) {
+    \Illuminate\Pagination\Paginator::currentPageResolver(function () use ($page) {
+        return $page;
+    });
+
+    return Item::paginate(10);
 });
